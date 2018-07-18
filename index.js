@@ -4,14 +4,10 @@ const http = require('http').Server(app);
 const io = require("socket.io")(http);
 const hostname = '127.0.0.1';
 const port = 3000;
-//app.use(http.static(__dirname ));
 
 var messages = [];
 var users = [];
 var allUsers = [];
-var db = require('./db');
-
-
 
 app.get("/", function(req, res){
   res.sendFile(__dirname + "/index.html");
@@ -50,11 +46,7 @@ io.on('connection', function(socket){
 
 });
 
-db.connect('mongodb://localhost:27017/users', function(err){
-    if(err){
-      return console.log(err);
-    }
-    http.listen(port, hostname, () => {
-      console.log(`Server running at http://${hostname}:${port}/`);
-    });
+http.listen(port, hostname, () => {
+  console.log(`Server running at http://${hostname}:${port}/`);
 });
+
