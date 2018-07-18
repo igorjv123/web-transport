@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Chat</title>
+    <style media="screen">
+      *{
+          box-sizing: border-box;
+          padding: 0;
+          font-family: "Arial";
+      }
+      body{
+          align-content: center;
+      }
+      /* body div{
+        border: 1px solid #ccc;
+        border-radius: 3px;
+      } */
+      body li {
+        list-style: none;
+      }
+      .container{
+          /*margin: 20px 50px 20px 50px;*/
+        margin: 0 auto;
+        display: grid;
+        position: relative;
+        width: 900px;
+        grid-template-columns: 250px, 650px;
+        grid-template-rows: 300px 50px;
+        grid-gap: 10px;
+      }
+      .clearfix:after{
+        content: "";
+        display: block;
+        clear: both;
+        visibility: hidden;
+        height: 0px;
+      }
+      .sendfield{
+        max-width: 900px;
+        float: left;
+        position: relative;
+        grid-column: 2;
+        grid-row: 2;
+      }
+      #messagesField{
+        position: relative;
+        overflow-y: scroll;
+        grid-column: 2/3  ;
+        grid-row: 1;
+        padding: 10px;
+        width: 650px;
+      }
+      #messagesField li{
+        margin-top: 10px;
+        border-radius: 4px;
+        box-shadow: 1px 3px 4px #ccc;
+        display: block;
+        background: #ccffff;
+        padding: 5px;
+        color: #404040;
+      }
+      .nameField{
+        float: left;
+      }
+      .usersShow{
+        position: relative;
+        padding: 10px;
+        max-width: 250px;
+        grid-column: 1;
+        grid-row: 1/3;
+        overflow-y: scroll;
+      }
+      #textSubmit{
+        float: right;
+        padding: 10px;
+        font-size: 20px;
+
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+
+      <div class="usersShow">
+      <h3 id="userHeader"></h3>
+        <ul id="activeUsers">
+
+        </ul>
+      </div>
+      <div id="messagesField">
+          <ul id="messages"></ul>
+      </div>
+      <div class="sendfield">
+          <textarea type="text" cols="70" rows="3" id="text"></textarea>
+          <input type="button" value="Send" id="textSubmit">
+      </div>
+    </div>
+
+  </body>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="script.js"></script>
+
+
+
+</html
