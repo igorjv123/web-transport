@@ -39,9 +39,6 @@ function myFunction() {
 }
 myFunction();
 
-// nameButton.onclick = function(){
-//
-// };
 textSubmit.onclick = function(){
   var data = {
     name: user.name,
@@ -53,7 +50,7 @@ textSubmit.onclick = function(){
 };
 
 socket.on('chat history', function(msg){
-  //console.log(msg);
+  
   messages.innerHTML = '';
 
   for(var i in msg){
